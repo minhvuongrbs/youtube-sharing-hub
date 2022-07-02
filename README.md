@@ -1,6 +1,6 @@
 # Youtube sharing hub
 
-Web application that allows users to share youtube video
+Web application that allows users to share youtube video. It was built by Nestjs for the backend and Nextjs for the frontend.
 
 ## Table of Contents
 
