@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { transformPassword } from 'src/utils/passwordTransformation';
 import { Repository } from 'typeorm';
 import { UserEntity } from './user.entity';
 
@@ -16,7 +17,12 @@ export class UsersService {
 
   async addUser(user: UserEntity): Promise<UserEntity> {
     try {
-      const { password, ...newUser } = await this.userRepository.save(user);
+      const hashedPassword = await transformPassword(user.password);
+      const { password, ...newUser } = await this.userRepository.save({
+        ...user,
+        password: hashedPassword,
+      });
+
       return newUser;
     } catch (error) {
       throw new Error(error);
