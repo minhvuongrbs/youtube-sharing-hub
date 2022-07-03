@@ -15,7 +15,11 @@ export class UsersService {
   }
 
   async addUser(user: UserEntity): Promise<UserEntity> {
-    const { password, ...newUser } = await this.userRepository.save(user);
-    return newUser;
+    try {
+      const { password, ...newUser } = await this.userRepository.save(user);
+      return newUser;
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 }

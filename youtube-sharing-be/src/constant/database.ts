@@ -1,4 +1,5 @@
 import { UserEntity } from 'src/users/user.entity';
+import { VideoEntity } from 'src/videos/video.entity';
 
 export const DATABASE_CONNECTION = {
   type: 'mysql',
@@ -7,6 +8,6 @@ export const DATABASE_CONNECTION = {
   username: 'root',
   password: 'root',
   database: 'youtube_sharing',
-  entities: [UserEntity],
+  entities: [UserEntity, VideoEntity],
   synchronize: true,
 };
