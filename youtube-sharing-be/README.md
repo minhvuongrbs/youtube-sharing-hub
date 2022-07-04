@@ -50,3 +50,4 @@ $ nest deploy azure
 
 ### Deploy production by vscode
 - Choose `Deploy to Function app`
+- Address: https://vincentyoutube.azurewebsites.net/api
