@@ -4,6 +4,7 @@
 
 # environments
 .env
+azure.deployment.json
 
 # Logs
 logs
