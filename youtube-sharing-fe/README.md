@@ -1,28 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js with TypeScript example
 
-## Production access
-[Youtube sharing hub](https://youtube-sharing-hub.vercel.app)
+## How to use
 
-## Getting Started
+Download the example [or clone the repo](https://github.com/mui/material-ui):
 
-First, run the development server:
+<!-- #default-branch-switch -->
 
-```bash
-npm run dev
-# or
-yarn dev
+```sh
+curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/youtube-sharing-fe
+cd youtube-sharing-fe
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install it and run:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```sh
+npm install
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+or:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<!-- #default-branch-switch -->
 
-## Deploy on Vercel
+[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/master/examples/youtube-sharing-fe)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui/material-ui/tree/master/examples/youtube-sharing-fe)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## The idea behind the example
+
+The project uses [Next.js](https://github.com/vercel/next.js), which is a framework for server-rendered React apps.
+It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5. If you prefer, you can [use styled-components instead](https://mui.com/material-ui/guides/interoperability/#styled-components).
+
+## The link component
+
+Next.js has [a custom Link component](https://nextjs.org/docs/api-reference/next/link).
+The example folder provides adapters for usage with MUI.
+More information [in the documentation](https://mui.com/material-ui/guides/routing/#next-js).
+
+## What's next?
+
+<!-- #default-branch-switch -->
+
+You now have a working example project.
+You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/material-ui/getting-started/templates/) section.
