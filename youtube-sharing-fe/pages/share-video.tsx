@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import type { NextPage } from 'next';
+import { MaterialUIFormSubmit } from '../src/MaterialUIFormSubmit';
 import ResponsiveAppBar from '../src/ResponsiveAppbar';
 
 const ShareVideo: NextPage = () => {
@@ -15,7 +16,7 @@ const ShareVideo: NextPage = () => {
           alignItems: 'center',
         }}
       >
-        share video
+        <MaterialUIFormSubmit formName="Share a youtube movie" />
       </Box>
     </Container>
   );

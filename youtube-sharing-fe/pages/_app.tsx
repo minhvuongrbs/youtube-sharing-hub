@@ -15,7 +15,7 @@ axios.defaults.baseURL = 'https://vincentyoutube.azurewebsites.net/';
 
 //check jwt token
 if (isBrowser()) {
-  const token = localStorage.getItem('token');
+  const token = JSON.parse(localStorage.getItem('user') || '{}')?.access_token;
   if (token) {
     setAuthToken(token);
   }

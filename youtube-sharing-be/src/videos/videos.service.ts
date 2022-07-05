@@ -11,7 +11,7 @@ export class VideosService {
     private readonly videosRepository: Repository<VideoEntity>,
   ) {}
   showAllVideos() {
-    return this.videosRepository.find();
+    return this.videosRepository.find({ order: { createdAt: 'DESC' } });
   }
 
   shareNewVideo(reqBody, user?: JWTAuthenticationBody) {
