@@ -22,21 +22,21 @@ const ResponsiveAppBar = () => {
   const loggedIn = isLoggedIn();
   const userEmail = loggedIn ? getCurrentUser().email : '';
 
-  const onLoginSubmit = (e) => {
+  const onLoginSubmit = (e: any) => {
     e.preventDefault();
     if (email && password) {
       login({ email, password });
     }
   };
 
-  const onRegisterSubmit = (e) => {
+  const onRegisterSubmit = (e: any) => {
     e.preventDefault();
     if (email && password) {
       register({ email, password });
     }
   };
 
-  const onClickLogout = (e) => {
+  const onClickLogout = (e: any) => {
     e.preventDefault();
     localStorage.removeItem('user');
     Router.replace('/');
