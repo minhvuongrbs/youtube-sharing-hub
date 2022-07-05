@@ -1,14 +1,25 @@
-import * as React from 'react';
-import Head from 'next/head';
-import { AppProps } from 'next/app';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import theme from '../src/theme';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
 import createEmotionCache from '../src/createEmotionCache';
+import theme from '../src/theme';
+import { isBrowser } from '../utils/isBrowser';
+import { setAuthToken } from '../utils/setAuthToken';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
+axios.defaults.baseURL = 'https://vincentyoutube.azurewebsites.net/';
+
+//check jwt token
+if (isBrowser()) {
+  const token = localStorage.getItem('token');
+  if (token) {
+    setAuthToken(token);
+  }
+}
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;

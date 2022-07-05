@@ -5,10 +5,42 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import * as React from 'react';
+import Link from 'next/link';
+import Router from 'next/router';
+import { useEffect, useState } from 'react';
+import {
+  getCurrentUser,
+  isLoggedIn,
+  login,
+  register,
+} from '../requests/userApi';
 
 const ResponsiveAppBar = () => {
-  const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const loggedIn = isLoggedIn();
+  const userEmail = loggedIn ? getCurrentUser().email : '';
+
+  const onLoginSubmit = (e) => {
+    e.preventDefault();
+    if (email && password) {
+      login({ email, password });
+    }
+  };
+
+  const onRegisterSubmit = (e) => {
+    e.preventDefault();
+    if (email && password) {
+      register({ email, password });
+    }
+  };
+
+  const onClickLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('user');
+    Router.replace('/');
+  };
 
   return (
     <AppBar position="static">
@@ -41,16 +73,24 @@ const ResponsiveAppBar = () => {
               }}
             >
               <Typography textAlign="center" align="center">
-                Welcome minhvuong2810@gmail.com
+                Welcome {userEmail}
               </Typography>
             </Box>
           )}
           {loggedIn ? (
             <Box sx={{ flexGrow: 1, justifyContent: 'right', display: 'flex' }}>
-              <Button sx={{ color: 'white', display: 'block', size: 'small' }}>
-                Share Video
-              </Button>
-              <Button sx={{ color: 'white', display: 'block', size: 'small' }}>
+              <Link href="/share-video" color="secondary">
+                <Button
+                  sx={{ color: 'white', display: 'block', size: 'small' }}
+                >
+                  Share Video
+                </Button>
+              </Link>
+
+              <Button
+                sx={{ color: 'white', display: 'block', size: 'small' }}
+                onClick={onClickLogout}
+              >
                 Log out
               </Button>
             </Box>
@@ -63,17 +103,32 @@ const ResponsiveAppBar = () => {
                 py: 1,
               }}
             >
-              <TextField id="outlined-basic" label="User" variant="filled" />
+              <TextField
+                id="outlined-basic"
+                label="User"
+                variant="filled"
+                autoComplete="nope"
+                onChange={(event) => setEmail(event.target.value)}
+              />
               <TextField
                 id="outlined-basic"
                 label="Password"
                 variant="filled"
                 type="password"
+                name="password"
+                autoComplete="new-password"
+                onChange={(event) => setPassword(event.target.value)}
               />
-              <Button sx={{ color: 'white', display: 'block', size: 'small' }}>
+              <Button
+                sx={{ color: 'white', display: 'block', size: 'small' }}
+                onClick={onLoginSubmit}
+              >
                 Log In
               </Button>
-              <Button sx={{ color: 'white', display: 'block', size: 'small' }}>
+              <Button
+                sx={{ color: 'white', display: 'block', size: 'small' }}
+                onClick={onRegisterSubmit}
+              >
                 Register
               </Button>
             </Box>

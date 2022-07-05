@@ -20,6 +20,7 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-youtube": "^9.0.3",
     "swr": "^1.3.0"
   },
   "devDependencies": {

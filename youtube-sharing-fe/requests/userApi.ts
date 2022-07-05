@@ -1,4 +1,6 @@
 import axios from 'axios';
+import * as Router from 'next/router';
+import { isBrowser } from '../utils/isBrowser';
 
 export const login = async ({
   email,
@@ -12,27 +14,43 @@ export const login = async ({
       email,
       password,
     });
-    console.log(res.data);
+    if (isBrowser()) {
+      localStorage.setItem('user', JSON.stringify(res.data));
+      Router.replace('/');
+    }
   } catch (error) {
-    console.log(error);
+    console.log('login err', error);
   }
 };
 
-export const getUser = async () => {
+export const register = async ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) => {
   try {
-    let res = await axios.get(`/api/auth/me`);
-
-    return res.data.user;
+    const res = await axios.post(`/api/auth/signup`, {
+      email,
+      password,
+    });
+    login({ email, password });
   } catch (error) {
-    console.log(error);
-    throw error;
+    console.log('login err', error);
   }
 };
 
-export const logout = async () => {
-  try {
-    await axios.get(`/api/auth/logout`);
-  } catch (error) {
-    console.log(error);
-  }
+export const getCurrentUser = () => {
+  return isBrowser()
+    ? JSON.parse(localStorage.getItem('user') || '{}')?.data
+    : null;
+};
+
+export const isLoggedIn = () => {
+  return !!getCurrentUser();
+};
+
+export const logout = () => {
+  isBrowser() ? localStorage.removeItem('user') : null;
 };

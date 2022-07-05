@@ -12,6 +12,8 @@ export class VideoEntity {
   id: number;
   @Column({ unique: true })
   youtubeUrl: string;
+  @Column()
+  shareBy: string;
   @CreateDateColumn()
   createdAt: Date;
   @UpdateDateColumn()
