@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { JWTAuthenticationBody } from 'src/auth/jwt.strategy';
 import { Repository } from 'typeorm';
 import { VideoEntity } from './video.entity';
 
@@ -13,7 +14,10 @@ export class VideosService {
     return this.videosRepository.find();
   }
 
-  shareNewVideo({ youtubeUrl }: { youtubeUrl: string }) {
-    return this.videosRepository.insert({ youtubeUrl });
+  shareNewVideo(reqBody, user?: JWTAuthenticationBody) {
+    return this.videosRepository.insert({
+      youtubeUrl: reqBody.youtubeUrl,
+      shareBy: user.email,
+    });
   }
 }

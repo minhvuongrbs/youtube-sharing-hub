@@ -15,6 +15,12 @@ export class UsersService {
     return this.userRepository.findOne({ where: { email } });
   }
 
+  async getUserInfo(user: any) {
+    const { password, ...publicUserInfo } = await this.findOne(user.email);
+
+    return publicUserInfo;
+  }
+
   async addUser(user: UserEntity): Promise<UserEntity> {
     try {
       const hashedPassword = await transformPassword(user.password);

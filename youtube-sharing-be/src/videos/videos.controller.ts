@@ -13,6 +13,6 @@ export class VideosController {
   @Post()
   @UseGuards(JwtAuthGuard)
   shareNewVideo(@Request() req) {
-    return this.videoService.shareNewVideo(req.body);
+    return this.videoService.shareNewVideo(req.body, req.user);
   }
 }
