@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as Router from 'next/router';
+import Router from 'next/router';
 import { isBrowser } from '../utils/isBrowser';
 
 export const login = async ({
