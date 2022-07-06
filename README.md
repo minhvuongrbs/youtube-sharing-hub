@@ -6,12 +6,16 @@ Web application that allows users to share youtube video. It was built by Nestjs
 
 - [Youtube sharing hub](#youtube-sharing-hub)
   - [Table of Contents](#table-of-contents)
+  - [Access](#access)
   - [Install](#install)
   - [Usage](#usage)
 
+## Access
+
+[Web application](https://youtube-sharing-hub.vercel.app)
+
 ## Install
 
-
 ## Usage
-- [Web application address](https://youtube-sharing-hub.vercel.app)
+
 - [Backend service](https://vincentyoutube.azurewebsites.net/api)

@@ -6,6 +6,9 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+- Server is deployed to Azure function
+- Database is Mysql which host on Azure Database for MySQL - Flexible Server
+
 ## Installation
 
 ```bash
@@ -45,9 +48,10 @@ $ npm run test:cov
 $ npm run build && func host start
 
 # Deploy production
-$ nest deploy azure 
+$ nest deploy azure
 ```
 
 ### Deploy production by vscode
+
 - Choose `Deploy to Function app`
 - Address: https://vincentyoutube.azurewebsites.net/api

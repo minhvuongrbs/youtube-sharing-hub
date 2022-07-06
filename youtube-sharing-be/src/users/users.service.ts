@@ -1,6 +1,6 @@
+import { transformPassword } from './../utils/passwordTransformation';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { transformPassword } from 'src/utils/passwordTransformation';
 import { Repository } from 'typeorm';
 import { UserEntity } from './user.entity';
 

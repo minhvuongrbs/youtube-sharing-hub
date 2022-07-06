@@ -1,45 +1,14 @@
-# Next.js with TypeScript example
+# Youtube sharing Frontend by Next.js
 
-## How to use
+It has been deployed to Vercel
 
-Download the example [or clone the repo](https://github.com/mui/material-ui):
-
-<!-- #default-branch-switch -->
-
-```sh
-curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/youtube-sharing-fe
-cd youtube-sharing-fe
-```
-
-Install it and run:
-
-```sh
-npm install
-npm run dev
-```
-
-or:
-
-<!-- #default-branch-switch -->
-
-[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/master/examples/youtube-sharing-fe)
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui/material-ui/tree/master/examples/youtube-sharing-fe)
-
-## The idea behind the example
+## Next.js with Material UI
 
 The project uses [Next.js](https://github.com/vercel/next.js), which is a framework for server-rendered React apps.
-It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5. If you prefer, you can [use styled-components instead](https://mui.com/material-ui/guides/interoperability/#styled-components).
+It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5.
 
 ## The link component
 
 Next.js has [a custom Link component](https://nextjs.org/docs/api-reference/next/link).
 The example folder provides adapters for usage with MUI.
 More information [in the documentation](https://mui.com/material-ui/guides/routing/#next-js).
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/material-ui/getting-started/templates/) section.
